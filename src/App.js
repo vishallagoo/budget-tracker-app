@@ -53,7 +53,7 @@ function App() {
       if(user && user.profile && user.profile.id) {
         let currentYearEntries = []
           const entriesRef =  database.ref(`/users/${user.profile?.id}/entries`)
-          entriesRef.once('value', (snapshot) => {
+          entriesRef.on('value', (snapshot) => {
             const allEntries = snapshot.val()
             if (allEntries) {
               currentYearEntries = Object.values(allEntries).filter((entry) => {
@@ -104,8 +104,6 @@ function App() {
   useEffect(() => {
     fetchFinancialData();
   }, [user]);
-
-  
 
   useEffect(() => {
     getMonthlyData();
