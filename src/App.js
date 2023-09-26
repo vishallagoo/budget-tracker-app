@@ -48,28 +48,28 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  }
-  try {
-    if(user && user.profile && user.profile.id) {
-      let currentYearEntries = []
-        const entriesRef =  database.ref(`/users/${user.profile?.id}/entries`)
-        entriesRef.once('value', (snapshot) => {
-          const allEntries = snapshot.val()
-          if (allEntries) {
-            currentYearEntries = Object.values(allEntries).filter((entry) => {
-              const createdAt = new Date(entry.createdAt);
-              return createdAt.getFullYear() === new Date().getFullYear();;
-            })
-            // console.log(currentYearEntries);
-            setEntries(currentYearEntries)
+
+    try {
+      if(user && user.profile && user.profile.id) {
+        let currentYearEntries = []
+          const entriesRef =  database.ref(`/users/${user.profile?.id}/entries`)
+          entriesRef.once('value', (snapshot) => {
+            const allEntries = snapshot.val()
+            if (allEntries) {
+              currentYearEntries = Object.values(allEntries).filter((entry) => {
+                const createdAt = new Date(entry.createdAt);
+                return createdAt.getFullYear() === new Date().getFullYear();;
+              })
+              setEntries(currentYearEntries)
+              setIsLoading(false)
+            }
             setIsLoading(false)
-          }
-          setIsLoading(false)
-        })
+          })
+      }
+    } catch (error) {
+      setIsLoading(false)
+      console.log(error);
     }
-  } catch (error) {
-    setIsLoading(false)
-    console.log(error);
   }
 
   const getMonthlyData = () => {
