@@ -9,6 +9,7 @@ import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 import EntryForm from './components/EntryForm';
 import firebase from 'firebase/compat/app'
 import SkeletonUI from './components/SkeletonUI';
+import Home from './components/Home';
 
 const style = {
   position: 'absolute',
@@ -43,23 +44,32 @@ function App() {
         projectedRef.on('value', (snapshot) => {
           setProjectedAmounts(snapshot.val())
         })
-        let currentYearEntries = []
-        const entriesRef =  database.ref(`/users/${user.profile?.id}/entries`)
-        entriesRef.on('value', (snapshot) => {
-          const allEntries = snapshot.val()
-          currentYearEntries = Object.values(allEntries).filter((entry) => {
-            const createdAt = new Date(entry.createdAt);
-            return createdAt.getFullYear() === new Date().getFullYear();;
-          })
-          // console.log(currentYearEntries);
-          setEntries(currentYearEntries)
-          setIsLoading(false)
-        })
       }
-      
     } catch (error) {
       console.log(error);
     }
+  }
+  try {
+    if(user && user.profile && user.profile.id) {
+      let currentYearEntries = []
+        const entriesRef =  database.ref(`/users/${user.profile?.id}/entries`)
+        entriesRef.once('value', (snapshot) => {
+          const allEntries = snapshot.val()
+          if (allEntries) {
+            currentYearEntries = Object.values(allEntries).filter((entry) => {
+              const createdAt = new Date(entry.createdAt);
+              return createdAt.getFullYear() === new Date().getFullYear();;
+            })
+            // console.log(currentYearEntries);
+            setEntries(currentYearEntries)
+            setIsLoading(false)
+          }
+          setIsLoading(false)
+        })
+    }
+  } catch (error) {
+    setIsLoading(false)
+    console.log(error);
   }
 
   const getMonthlyData = () => {
@@ -124,6 +134,7 @@ function App() {
             <>
               <Container maxWidth='xl'>
               <Outlet />
+              <Home />
               <Fab variant='extended' color="primary"
                 sx={{position: 'fixed', right: 25, bottom: 25, zIndex: 1, p:1}} 
                 onMouseEnter={() => {setIsHovered(true)}} 

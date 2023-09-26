@@ -9,7 +9,7 @@ const Header = () => {
     <AppBar position='sticky' sx={{borderRadius: '0 0 20px 20px', py: 1}}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
-          <Typography variant='h4' noWrap flexGrow={1}>
+          <Typography variant='h5' noWrap flexGrow={1}>
             <Link to='/' style={{textDecoration: 'none', color: 'inherit'}}>Budget Tracker</Link>
           </Typography>
           <ThemeToggler />
