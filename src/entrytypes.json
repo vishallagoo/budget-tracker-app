@@ -1,0 +1,5 @@
+{
+    "Expense": ["Grocery", "Fuel", "Entertainment", "Movie", "Utilities", "Insurance", "Health", "Gifts", "Other"],
+    "Income": ["Salary", "Investment Profits", "Claims", "Other"],
+    "Investments": ["Mutual Funds", "Stock Market", "Gold", "Bonds", "Cryptocurrency", "Deposits (FD / RD)"]
+  }
