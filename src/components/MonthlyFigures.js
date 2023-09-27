@@ -78,16 +78,16 @@ const MonthlyFigures = () => {
       <Typography color='text.primary' sx={{}}>Click on the pencil icon to edit projected budget.</Typography>
       <Grid2 container spacing={2} sx={{my: 2}}>
         <Grid2 xs={12} sm={6} md={3}>
-          <BudgetCards type='projected_income' title='Income' projected={projectedAmounts.projected_income} actual={totalIncome} img={SalaryImg} />
+          <BudgetCards type='projected_income' title='Income' textColor='#4CAF50' projected={projectedAmounts.projected_income} actual={totalIncome} img={SalaryImg} />
         </Grid2>
         <Grid2 xs={12} sm={6} md={3}>
-          <BudgetCards type='projected_expense' title='Expense' projected={projectedAmounts.projected_expense} actual={totalExpense} img={ExpenseImg}/>
+          <BudgetCards type='projected_expense' title='Expense' textColor='#F44336' projected={projectedAmounts.projected_expense} actual={totalExpense} img={ExpenseImg}/>
         </Grid2>
         <Grid2 xs={12} sm={6} md={3}>
-          <BudgetCards type='projected_investments' title='Investments' projected={projectedAmounts.projected_investments} actual={totalInvestments} img={InvestImg}/>
+          <BudgetCards type='projected_investments' title='Investments' textColor='#2196F3' projected={projectedAmounts.projected_investments} actual={totalInvestments} img={InvestImg}/>
         </Grid2>
         <Grid2 xs={12} sm={6} md={3}>
-          <BudgetCards type='projected_balance' title='Balance' projected={projectedAmounts.projected_balance} actual={totalBalance} img={BalanceImg} />
+          <BudgetCards type='projected_balance' title='Balance' textColor='#009688' projected={projectedAmounts.projected_balance} actual={totalBalance} img={BalanceImg} />
         </Grid2>
       </Grid2>
     </Box>

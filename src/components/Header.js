@@ -10,7 +10,7 @@ const Header = () => {
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <Typography variant='h5' noWrap flexGrow={1}>
-            <Link to='/' style={{textDecoration: 'none', color: 'inherit'}}>Budget Tracker</Link>
+            <Link to='/budget-tracker-app/' style={{textDecoration: 'none', color: 'inherit'}}>Budget Tracker</Link>
           </Typography>
           <ThemeToggler />
           <Profile />

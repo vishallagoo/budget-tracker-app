@@ -5,7 +5,7 @@ import firebase from 'firebase/compat/app'
 import {database} from 'firebase/compat/database'
 import { UserContext } from '../context/UserContext'
 
-const BudgetCards = ({type, projected, actual, title, img}) => {
+const BudgetCards = ({type, projected, actual, title, img, textColor}) => {
     const [isEditing, setIsEditing] = useState(false)
     const [text, setText] = useState(projected || '')
     const {user} = useContext(UserContext)
@@ -46,7 +46,7 @@ const BudgetCards = ({type, projected, actual, title, img}) => {
                     <Typography variant='h6'>
                         {title}
                     </Typography>
-                    <Typography variant='h6'>
+                    <Typography variant='h6' color={textColor}>
                         ₹ {!actual ? '0' : actual}
                     </Typography>
                     {isEditing ? (

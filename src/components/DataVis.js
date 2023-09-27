@@ -15,14 +15,14 @@ const DataVis = () => {
         if (visualizationArray && visualizationArray.length > 0) {
             const labels = visualizationArray.map(item => item.name)
             const data = visualizationArray.map(item => item.amount)
-            const backgroundColors = randomColor({ count: data.length });
-            const hoverColors = randomColor({ count: data.length, luminosity: 'dark' });
+            const backgroundColors = randomColor({ count: data.length, luminosity: 'dark' });
+            // const hoverColors = randomColor({ count: data.length, luminosity: 'dark' });
             const newchartData = {
                 labels,
                 datasets: [{
                     data,
                     backgroundColor: backgroundColors,
-                    hoverBackgroundColor: hoverColors,
+                    hoverBackgroundColor: backgroundColors,
                 }],
             }
             setChartData(newchartData)
@@ -45,7 +45,7 @@ const DataVis = () => {
                   position: 'bottom', // Change the legend position (e.g., 'top', 'bottom', 'left', 'right')
                   margin: '10px',
                   labels: {
-                    padding: 30
+                    padding: 15
                   }
                 },
                 
