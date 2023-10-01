@@ -1,16 +1,19 @@
 import { createTheme } from "@mui/material";
-import { blueGrey } from "@mui/material/colors";
 
 const lightTheme = createTheme({
-    palette: {
-        mode: 'light'
-    }
-})
+  palette: {
+    mode: "light",
+  },
+});
 
 const darkTheme = createTheme({
-    palette: {
-        mode: 'dark',
-    }
-})
+  palette: {
+    mode: "dark",
+    background: {
+      default: "#141d26",
+      paper: "#243447",
+    },
+  },
+});
 
-export {lightTheme, darkTheme}
+export { lightTheme, darkTheme };
