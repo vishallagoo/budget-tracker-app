@@ -10,6 +10,7 @@ import EntryForm from "./components/EntryForm";
 import firebase from "firebase/compat/app";
 import SkeletonUI from "./components/SkeletonUI";
 import Home from "./components/Home";
+import "firebase/compat/database";
 
 const style = {
   position: "absolute",
